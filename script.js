@@ -1,5 +1,7 @@
+//initial solution
+
 function computerPlay(){
-    let choices = ["Rock", "Paper", "Scissors "];
+    let choices = ["Rock", "Paper", "Scissors"];
     let randomChoiceNumber = Math.floor(Math.random()* 3);  //this will select a random number from 0-2
     let selectedChoice = choices[randomChoiceNumber];
     //console.log(randomChoiceNumber);
@@ -54,4 +56,17 @@ function playGame(playerSelection){
     }
 }
 
-console.log(playGame("paper"));
+function game(){
+
+    for(let i= 0; i < 5; i++){
+        console.log(`Round ${i+1}`);
+
+        let userChoice = prompt("Enter you choice : Rock Paper Scissors \n");
+        console.log(playGame(userChoice));
+
+
+    }
+}
+
+game();
+//console.log(playGame("paper"));
