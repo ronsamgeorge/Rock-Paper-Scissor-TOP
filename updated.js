@@ -14,6 +14,14 @@ function computerPlay(){
 }
 
 
+function isValidInput(playerChoice){
+
+    if(playerChoice== "paper" || playerChoice == "rock" || playerChoice == "scissors"){
+        return true;
+    }
+    return false;
+}
+
 
 //playGame() is where the comparisons for the choices of the Player and Computer takes place 
 function playGame(playerSelection, computerSelection){
@@ -25,17 +33,19 @@ function playGame(playerSelection, computerSelection){
     console.log("Player Choice : " + playerChoice);
     console.log("PC : " + computerSelection);
 
+    if(!isValidInput(playerChoice)){
+        return "wrongInput";
+    }
 
     if (playerChoice == computerChoice){
         return "draw";
     }
+
     if ((playerChoice == "scissors")&&(computerChoice == "paper") || 
         ((playerChoice == "paper") && (computerChoice == "rock")) ||
         ((playerChoice == "rock") && (computerChoice=="paper")))  {
         return "won";
-    }
-
-     else {
+    } else {
         return "lost";
     }
 }
@@ -49,10 +59,8 @@ function declareWinner(playerScore, computerScore){
     }else {
         return "It's a draw"
     }
-
-
-    
 }
+
 
 
 //the initial function which starts the rounds.
@@ -75,6 +83,8 @@ function game(){
 
         computerInput = computerPlay();    //calls the function computerPlay to get a random choice for the computer's turn
         result = playGame(playerInput, computerInput);
+
+
         console.log(result);
 
         if (result === "won" )
@@ -88,12 +98,16 @@ function game(){
             computerScore += 1;
         }
         
-        else{
+        else if (result == 'draw'){
             console.log('Its a draw! ')
+        }
+        else{
+            console.log('wrong input, enter again');
+            i--;
         }
     }
 
-    console.log(declareWinner(playerScore,computerScore));   
+    alert(declareWinner(playerScore,computerScore));   
 }
 
 game();
