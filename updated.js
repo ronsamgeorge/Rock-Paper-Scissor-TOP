@@ -41,6 +41,8 @@ function playGame(playerSelection, computerSelection){
         return "draw";
     }
 
+    //since there are three conditions in which the user can win, included them in one if statement using OR
+
     if ((playerChoice == "scissors")&&(computerChoice == "paper") || 
         ((playerChoice == "paper") && (computerChoice == "rock")) ||
         ((playerChoice == "rock") && (computerChoice=="paper")))  {
