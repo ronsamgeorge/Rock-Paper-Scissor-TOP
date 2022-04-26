@@ -1,19 +1,5 @@
 //updated solution
 
-
-//ComputerPlay() is a function which randomly selects an option from the available options
-
-function computerPlay(){
-    let choices = ["Rock", "Paper", "Scissors"];
-    let randomChoiceNumber = Math.floor(Math.random()* 3);  //this will select a random number from 0-2
-    let selectedChoice = choices[randomChoiceNumber];
-    //console.log(randomChoiceNumber);
-    //console.log(selectedChoice);
-
-    return selectedChoice;
-}
-
-
 function isValidInput(playerChoice){
 
     if(playerChoice== "paper" || playerChoice == "rock" || playerChoice == "scissors"){
