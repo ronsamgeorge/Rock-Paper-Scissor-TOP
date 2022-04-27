@@ -27,9 +27,17 @@ function declareWinner(){
     }
 }
 
-function checkScore(){
+function checkWinner(){
 
-    if(playerScore == 5 || computerScore == 5) return true;
+    if(playerScore == 5 || computerScore == 5) {
+        
+        prompt(declareWinner());
+
+        playerScore = 0;
+        computerScore = 0;
+
+        return; 
+    }
 }
 
 
@@ -43,13 +51,8 @@ function playerChoice(e) {
     displayChoices(playerOption,computerOption);
     playGame(playerOption,computerOption);
     
-    if (checkScore()){
-        prompt(declareWinner());
-
-        playerScore = 0;
-        computerScore = 0;
-    }
-
+    
+      
 }
 
 
@@ -126,10 +129,17 @@ function playGame(playerOption, computerOption){
         console.log('Its a draw! ')
     }
      //alert(declareWinner(playerScore,computerScore));
+
+    const roundResult = document.querySelector('.round-result');
+    roundResult.textContent = `You Won! ${playerOption} beats ${computerOption}`;
+
+    const updatePlayerScore = document.querySelector('.player-score');
+    updatePlayerScore.textContent = `Player  : ${playerScore}`;
+
+    const updateComputerScore = document.querySelector('.computer-score');
+    updateComputerScore.textContent = `Computer  : ${computerScore}`;
      
-    console.log("Player Score : " + playerScore );
-    console.log("PC Score : " + computerScore);
- 
+    checkWinner();
 
 }
 
