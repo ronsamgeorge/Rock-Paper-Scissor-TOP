@@ -1,25 +1,55 @@
 
+let playerScore = 0;
+let computerScore = 0;
+
+
+
+
 //ComputerPlay() randomly selects an option from the available options
 
 function computerPlay(){
 
-    let choices = ["Rock", "Paper", "Scissors"];
+    let choices = ["rock", "paper", "scissors"];
     let randomChoiceNumber = Math.floor(Math.random()* 3);  //returns a random number from 0-2 inclusive
     let selectedChoice = choices[randomChoiceNumber];
 
     return selectedChoice;
 }
 
+function declareWinner(){
+
+    if(playerScore>computerScore){
+        return "You Won :) "
+    }else if (playerScore < computerScore){
+        return "You Lost :( "
+    }else {
+        return "It's a draw"
+    }
+}
+
+function checkScore(){
+
+    if(playerScore == 5 || computerScore == 5) return true;
+}
+
+
+
 
 function playerChoice(e) {
 
-    playerOption = this.id;                   //getting the user choice through the id of the Button pressed
+    playerOption = this.id;                     //getting the user choice through the id of the Button pressed
 
-    computerOption = computerPlay();
-
-    console.log(playerOption + " " + computerOption);
-
+    computerOption = computerPlay();            // Computer Choice
     displayChoices(playerOption,computerOption);
+    playGame(playerOption,computerOption);
+    
+    if (checkScore()){
+        prompt(declareWinner());
+
+        playerScore = 0;
+        computerScore = 0;
+    }
+
 }
 
 
@@ -29,10 +59,10 @@ function playerChoice(e) {
 */
 function displayChoices(playerOption, computerOption){
     
-    const content = document.querySelector('.display-result');
+    const content = document.querySelector('.display-choices');
 
    if(!content.querySelector('#player-option')){                            //if player-option child isn't present, create and appendChild
-    
+
         const displayPlayerOption = document.createElement('div');
         displayPlayerOption.id = 'player-option'
         displayPlayerOption.textContent = ` Player selected : ${playerOption}`;
@@ -53,7 +83,54 @@ function displayChoices(playerOption, computerOption){
 
    }
 
+}
+
+function round(playerOption, computerOption){
+
+    if (playerOption == computerOption){
+        return "draw";
+    }
+
+    //since there are three conditions in which the user can win, included them in one if statement using OR
+
+    if ((playerOption  == "scissors")&&(computerOption == "paper") || 
+        ((playerOption == "paper") && (computerOption == "rock")) ||
+        ((playerOption == "rock") && (computerOption == "paper")))  {
+        return "won";
+    } else {
+        return "lost";
+    }
+
+}
+
+function playGame(playerOption, computerOption){
+
+    let result;
+   
+    result = round(playerOption, computerOption);
+
+    console.log(result);
+
+    if (result === "won" )
+    {
+        console.log(`You Won! ${playerOption} beats ${computerOption}`);
+        playerScore += 1;
+    }
+    else if (result === "lost")
+    {
+        console.log(`You Lost! ${computerOption} beats ${[playerOption]}`);
+        computerScore += 1;
+    }
     
+    else if (result == 'draw'){
+        console.log('Its a draw! ')
+    }
+     //alert(declareWinner(playerScore,computerScore));
+     
+    console.log("Player Score : " + playerScore );
+    console.log("PC Score : " + computerScore);
+ 
+
 }
 
 
