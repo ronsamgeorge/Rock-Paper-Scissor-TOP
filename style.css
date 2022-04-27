@@ -1,5 +1,6 @@
 h1{
     text-align: center;
+    color: #fffffe;
 }
 
 body {
@@ -8,8 +9,15 @@ body {
     justify-content: center;
     align-items: center;
     gap : 32px;
+
+    background-color: #16161a;
+    color : #94a1b2;
+
+
 }
 
-.computer-score {
-    color : blue;
+
+button{
+    background-color: #7f5af0;
+    color: #fffffe;
 }
