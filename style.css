@@ -1,6 +1,8 @@
 h1{
     text-align: center;
     color: #fffffe;
+    font-size: 48px;
+    font-weight: bold;
 }
 
 body {
@@ -12,8 +14,6 @@ body {
 
     background-color: #16161a;
     color : #94a1b2;
-
-
 }
 
 
@@ -23,8 +23,8 @@ button{
 }
 
 .options{
-    width : 200px;
-    height: 200px;;
+    width : 150px;
+    height: 150px;
 }
 
 img{
@@ -35,4 +35,9 @@ img{
 .all-btns {
     display : flex;
     align-items: center;
+    gap : 8px;
+}
+
+.round-result{
+    font-size : 32px;
 }
