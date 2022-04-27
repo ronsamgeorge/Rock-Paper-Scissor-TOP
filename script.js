@@ -109,6 +109,7 @@ function round(playerOption, computerOption){
 function playGame(playerOption, computerOption){
 
     let result;
+    let resultStr = "";
    
     result = round(playerOption, computerOption);
 
@@ -116,22 +117,25 @@ function playGame(playerOption, computerOption){
 
     if (result === "won" )
     {
+        resultStr = `You Won! ${playerOption} beats ${computerOption}`;
         console.log(`You Won! ${playerOption} beats ${computerOption}`);
         playerScore += 1;
     }
     else if (result === "lost")
     {
+        resultStr =  `You Lost! ${computerOption} beats ${[playerOption]}`;
         console.log(`You Lost! ${computerOption} beats ${[playerOption]}`);
         computerScore += 1;
     }
     
     else if (result == 'draw'){
+        resultStr =  "It's a Draw!";
         console.log('Its a draw! ')
     }
      //alert(declareWinner(playerScore,computerScore));
 
     const roundResult = document.querySelector('.round-result');
-    roundResult.textContent = `You Won! ${playerOption} beats ${computerOption}`;
+    roundResult.textContent = resultStr;
 
     const updatePlayerScore = document.querySelector('.player-score');
     updatePlayerScore.textContent = `Player  : ${playerScore}`;
