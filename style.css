@@ -21,3 +21,18 @@ button{
     background-color: #7f5af0;
     color: #fffffe;
 }
+
+.options{
+    width : 200px;
+    height: 200px;;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+}
+
+.all-btns {
+    display : flex;
+    align-items: center;
+}
