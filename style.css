@@ -20,6 +20,13 @@ body {
 button{
     background-color: #7f5af0;
     color: #fffffe;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:hover{
+    height: 175px;
+    width: 175px;
 }
 
 .options{
